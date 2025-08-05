@@ -1,8 +1,8 @@
 'use client';
 
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { useRef, useEffect, useState, forwardRef } from 'react';
-import { ArrowRight, Code, Zap, Users, Award, Star, CheckCircle, Play, Globe, Smartphone, Database } from 'lucide-react';
+import React, { useRef, useEffect, useState, forwardRef } from 'react';
+import { ArrowRight, Code, Zap, Users, Award, Star, CheckCircle, Globe, Smartphone, Database } from 'lucide-react';
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -219,8 +219,8 @@ export default function Home() {
   }
 
 const StatsSection = forwardRef<HTMLElement, { isBlackTheme: boolean }>(
-  ({ isBlackTheme }, ref) => {
-    const isInView = useInView(ref as any, { once: true });
+  function StatsSection({ isBlackTheme }, ref) {
+    const isInView = useInView(ref as React.RefObject<HTMLElement>, { once: true });
 
     const stats = [
       { number: '10K+', label: 'Students Taught' },
@@ -402,7 +402,7 @@ function AboutSection({ isBlackTheme }: { isBlackTheme: boolean }) {
             <p className={`text-xl mb-8 leading-relaxed transition-colors duration-600 ${
               isBlackTheme ? 'text-gray-300' : 'text-gray-600'
             }`}>
-              We're not just another coding bootcamp. We're a community of passionate 
+              We&apos;re not just another coding bootcamp. We&apos;re a community of passionate 
               educators and industry professionals dedicated to transforming careers 
               through cutting-edge web development education.
             </p>
@@ -507,7 +507,7 @@ function TestimonialsSection({ isBlackTheme }: { isBlackTheme: boolean }) {
           <p className={`text-xl max-w-3xl mx-auto transition-colors duration-600 ${
             isBlackTheme ? 'text-gray-300' : 'text-gray-600'
           }`}>
-            Don't just take our word for it. Hear from our graduates who are now 
+            Don&apos;t just take our word for it. Hear from our graduates who are now 
             thriving at top tech companies worldwide.
           </p>
         </motion.div>
@@ -534,7 +534,7 @@ function TestimonialsSection({ isBlackTheme }: { isBlackTheme: boolean }) {
               <p className={`mb-6 leading-relaxed transition-colors duration-600 ${
                 isBlackTheme ? 'text-gray-300' : 'text-gray-600'
               }`}>
-                "{testimonial.content}"
+                &ldquo;{testimonial.content}&rdquo;
               </p>
               <div>
                 <div className="font-semibold">{testimonial.name}</div>
@@ -633,7 +633,7 @@ function ContactSection({ isBlackTheme }: { isBlackTheme: boolean }) {
             isBlackTheme ? 'text-gray-300' : 'text-gray-600'
           }`}>
             Have questions about our courses? Ready to start your journey? 
-            We'd love to hear from you and help you take the next step.
+            We&apos;d love to hear from you and help you take the next step.
           </p>
         </motion.div>
 
