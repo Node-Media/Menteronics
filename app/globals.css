@@ -2,25 +2,156 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+  --muted: #f8f9fa;
+  --muted-foreground: #6b7280;
+  --accent: #ff5757;
+  --accent-foreground: #ffffff;
+  --secondary: #000000;
+  --destructive: #ef4444;
+  --border: #e5e7eb;
+  --radius: 0.5rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-secondary: var(--secondary);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --font-sans: var(--font-quicksand);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+    --muted: #f8f9fa;
+    --muted-foreground: #6b7280;
+    --accent: #ff5757;
+    --accent-foreground: #ffffff;
+    --secondary: #000000;
+    --border: #e5e7eb;
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #0a0a0a;
+  font-family: var(--font-quicksand), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+/* Dynamic background classes */
+.bg-white-theme {
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+.bg-black-theme {
+  background: #000000;
+  color: #ffffff;
+}
+
+.bg-white-theme .text-muted-foreground {
+  color: #6b7280;
+}
+
+.bg-black-theme .text-muted-foreground {
+  color: #9ca3af;
+}
+
+.bg-white-theme .border-border {
+  border-color: #e5e7eb;
+}
+
+.bg-black-theme .border-border {
+  border-color: #262626;
+}
+
+.bg-white-theme .bg-muted {
+  background-color: #f8f9fa;
+}
+
+.bg-black-theme .bg-muted {
+  background-color: #1a1a1a;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Gradient animations */
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(-45deg, #ff5757, #ff4757, #ff3838, #ff2d2d);
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+}
+
+/* Coral red gradient background */
+.coral-gradient-bg {
+  background: linear-gradient(-45deg, #ff5757, #000000, #ff4757, #1a1a1a);
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+}
+
+/* Glowing effect */
+.glow {
+  box-shadow: 0 0 30px rgba(255, 87, 87, 0.3);
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #ff5757, #ff4757, #ff3838);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+/* Coral to black gradient */
+.coral-black-gradient {
+  background: linear-gradient(135deg, #ff5757, #000000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
