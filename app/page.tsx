@@ -329,7 +329,7 @@ function FeaturesSection({ isBlackTheme }: { isBlackTheme: boolean }) {
             isBlackTheme ? 'text-gray-300' : 'text-gray-600'
           }`}>
             Our comprehensive curriculum covers everything from basics to advanced concepts,
-            ensuring you're ready for any development challenge.
+            ensuring you&apos;re ready for any development challenge.
           </p>
         </motion.div>
 
