@@ -5,8 +5,8 @@ import React, { useRef, useEffect, useState, forwardRef } from 'react';
 import { ArrowRight, Code, Zap, Users, Award, Star, CheckCircle, Globe, Smartphone, Database } from 'lucide-react';
 
 export default function Home() {
-  const containerRef = useRef(null);
-  const statsRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLElement>(null);
   const [isBlackTheme, setIsBlackTheme] = useState(false);
   
   const { scrollYProgress } = useScroll({
@@ -270,7 +270,7 @@ const StatsSection = forwardRef<HTMLElement, { isBlackTheme: boolean }>(
 );
 
 function FeaturesSection({ isBlackTheme }: { isBlackTheme: boolean }) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true });
 
   const features = [
@@ -366,7 +366,7 @@ function FeaturesSection({ isBlackTheme }: { isBlackTheme: boolean }) {
 }
 
 function AboutSection({ isBlackTheme }: { isBlackTheme: boolean }) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true });
 
   const achievements = [
@@ -461,7 +461,7 @@ function AboutSection({ isBlackTheme }: { isBlackTheme: boolean }) {
 }
 
 function TestimonialsSection({ isBlackTheme }: { isBlackTheme: boolean }) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true });
 
   const testimonials = [
@@ -551,7 +551,7 @@ function TestimonialsSection({ isBlackTheme }: { isBlackTheme: boolean }) {
 }
 
 function CTASection({ isBlackTheme }: { isBlackTheme: boolean }) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true });
 
   return (
@@ -605,7 +605,7 @@ function CTASection({ isBlackTheme }: { isBlackTheme: boolean }) {
 }
 
 function ContactSection({ isBlackTheme }: { isBlackTheme: boolean }) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true });
 
   return (
