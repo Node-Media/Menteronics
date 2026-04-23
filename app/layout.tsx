@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Quicksand } from "next/font/google";
 import "./globals.css";
 
@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   description: "Transform your career with cutting-edge web development courses at Menteronics. Learn from industry experts and build real-world projects that matter.",
   keywords: "web development, coding bootcamp, React, Next.js, programming courses, software development training, Menteronics",
   authors: [{ name: "Menteronics" }],
-  viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: [{ url: "/logo-mark.png?v=2", type: "image/png" }],
     shortcut: [{ url: "/logo-mark.png?v=2", type: "image/png" }],
@@ -30,6 +29,11 @@ export const metadata: Metadata = {
     title: "Menteronics - Master Web Development Like Never Before",
     description: "Transform your career with cutting-edge web development courses.",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
